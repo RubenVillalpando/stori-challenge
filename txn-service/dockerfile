@@ -1,0 +1,22 @@
+# Start from the latest Golang base image
+FROM golang:1.21
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the Go modules manifests
+COPY go.mod go.sum ./
+
+# Download the Go module dependencies
+RUN go mod download
+
+# Copy the entire txn-service directory
+COPY . .
+
+# Build the Go application
+RUN go build -o main cmd/app/
+
+# Expose the port your application listens on (if necessary)
+EXPOSE 8080
+
+CMD ["/main"]
