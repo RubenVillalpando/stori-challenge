@@ -20,4 +20,17 @@ if you haven't already, [install go](https://go.dev/doc/install)
 
     git clone https://github.com/RubenVillalpando/stori-challenge.git
 
-use the different make commands to spin up different things
+use the different make commands to spin up different things, mainly:
+
+    make mysql-up
+
+to spin up a docker mysql instance and to run each go program
+
+    make run-server
+    make run-lambda
+
+# Notes to add
+
+I attempted to deploy via cdk which was successful but had issues connecting with the mysql instance in the cloud as well as the s3 bucket so everything is now done locally :((((
+
+Thanks for taking the time to look at my project
